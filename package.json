@@ -1,0 +1,19 @@
+{
+  "name": "express-practice-7-router-in-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app"
+  },
+  "keywords": [],
+  "author": " nodemon app",
+  "license": "ISC",
+  "type":"module",
+  "dependencies": {
+    "express": "^5.0.0-alpha.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
