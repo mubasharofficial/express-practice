@@ -9,3 +9,5 @@ app.listen(port,()=>{
     console.log(`Server is Listening at http://localhost:${port}`);
 })
 *****************************************************************************
+npm i express@5.0.0-alpha.8
+npm i -D nodemon
