@@ -1,14 +1,7 @@
-import exp from 'express';
-const router = exp.Router();
-router.get('/delete/:id',(req,res)=>{
+import express from 'express';
+import {all_student,delete_student} from '../controllers/studentController.js'
+const router = express.Router();
+router.get('/all',all_student);
+router.get('/delete/:id([0-9]{2})',delete_student); // require 2 figure number id like '23,42,52'
 
-    if (req.params.id==10)
-    {
-      return  res.send("Record successfully Detete")
-    }
-    else{
-       return res.send("Record could not deleted Please Try Again")
-    }
-    console.table(req.params)
-    return res.send("Do not happen any changes");
-});
+export default router;
