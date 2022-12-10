@@ -2,19 +2,26 @@
   "name": "express-practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mubasharofficial/express-practice.git"
   },
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mubasharofficial/express-practice/issues"
   },
-  "homepage": "https://github.com/mubasharofficial/express-practice#readme"
+  "homepage": "https://github.com/mubasharofficial/express-practice#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "express": "^5.0.0-alpha.8"
+  }
 }
