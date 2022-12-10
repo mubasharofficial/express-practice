@@ -1,0 +1,28 @@
+{
+  "name": "express-practice-7-router-in-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubasharofficial/express-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mubasharofficial/express-practice/issues"
+  },
+  "homepage": "https://github.com/mubasharofficial/express-practice#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "express": "^5.0.0-alpha.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
