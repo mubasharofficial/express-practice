@@ -17,7 +17,7 @@
     "url": "https://github.com/mubasharofficial/express-practice/issues"
   },
   "homepage": "https://github.com/mubasharofficial/express-practice#readme",
-  "dependencies": {
+  "devDependencies": {
     "nodemon": "^2.0.20"
   }
 }
