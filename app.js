@@ -1,6 +1,7 @@
 import express from 'express';
 import {join} from 'path';
 import { myLogger } from './middleware/logger-middleware.js';
+import undercunstruction from './middleware/uc-middleware.js'
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -20,7 +21,7 @@ app.set('view engine','ejs');
 /**  this middleware called on application path level
   this will run on all routes which start from /aboute */
     //app.use('/about',myLogger);
-
+app.use(undercunstruction);
 app.use('/',web);
 app.use('/',router);
 
