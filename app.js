@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 const DATABASE_URL = process.env.DB_HOST +':'+ process.env.PORT  || 'mongodb://127.0.0.1:27017';
 
 // mongoose.set("strictQuery", false);
+// testing branch 
 // mongoose.connect(DATABASE_URL)
 // .then(()=>{
 //     console.log('mongo connected successfully')
