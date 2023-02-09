@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const connectDB = async (DATABASE_URL) =>{
-    mongoose.set('strictQuery', true);
+    mongoose.set('strictQuery');
     try{
         const DB_OPTIONS ={
             dbName: process.env.DATABASE_NAME || 'school_testdb',  // on start if not exit than create this db
