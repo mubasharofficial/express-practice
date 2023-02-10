@@ -18,7 +18,7 @@ join_us:{type:Date, default: Date.now},
 
 // check type of data type of any field by path
 //console.log(studentSchema.path('fees'));
-// Compiling Schema
+// Compiling Schema  TESTING 
 
 const studentModel  = mongoose.model('student',studentSchema);
 
