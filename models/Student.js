@@ -126,7 +126,7 @@ const getSortDoc = async () =>
     const result = await studentModel.find().sort({age:-1}); /** desciding order */
 
     console.log(result);
-    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());  // print all docs except one 
 }
 export { getAllDoc,getSingleDoc,
     getSortDoc,
