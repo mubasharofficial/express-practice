@@ -18,107 +18,120 @@ join_us:{type:Date, default: Date.now},
 
 // check type of data type of any field by path
 //console.log(studentSchema.path('fees'));
-// Compiling Schema  TESTING 
+// Compiling Schema 
 
 const studentModel  = mongoose.model('student',studentSchema);
 
-    
-// Create new Document
-/*
-const createDoc = async() => {
-try{
-        const studentDoc = new studentModel(
-            {
-            // _id:1231312, // if mention in schema creation
-                name:"Ali",
-                age:31,
-                fees:6500.05,
-                hobbies:['dancing','reading'],
-                isactive:true,
-                comment:[{value:'This is not good mongoose'}]
-            }
-        )
-        //   Saving Document
-        const result = await studentDoc.save();
-        console.log(result);
-    }catch(err)
-    {
-        console.log(err)
-    }        
+// Retrieve All Document
+
+const getAllDoc = async()=>
+{
+/** INCLUDE METHOD */
+
+/** include method select provide attribute */
+//  const result =  await studentModel.find().select('name age') // include,  select function will fetch just select attirubet
+//  const result =  await studentModel.find().select(['name', 'age']) // include, select function will fetch just select attirubet
+//  const result =  await studentModel.find().select({name:1, age:1}) // include, 1 mean select that. select function will fetch just select attirubet
+
+/** EXCLUDE METHOD */
+/**  select except provided method */
+//  const result =  await studentModel.find().select('-name -age') // exclude,  select except function will fetch just select attirubet
+//  const result =  await studentModel.find().select(['-name', '-age']) // exclude, select  except function will fetch just select attirubet
+//  const result =  await studentModel.find().select({name:0, age:0}) // exclude, 0 mean except this select except function will fetch just select attirubet
+
+/** PROJECTION METHOD */
+const result =  await studentModel.find({},'name age') // projection,  select  function will fetch just select attirubet
+
+ console.log(result)
+
+ //  result.forEach(
+//     (item) =>{
+//         console.log(
+//             item.name,
+//             item.age,
+//             item.fees.toString(),
+//             item.hobbies[0],
+//             item.hobbies[1],
+//             item.isactive,
+//             item.comment[0].value,
+//             item.comment[0].publish ,
+//             item.join_us  
+
+//             )
+//     }
+//  )
 }
-*/
-const createDoc = async(student) => {
-    try{
-            const studentDoc = new studentModel(
-                {
-                // _id:1231312, // if mention in schema creation
-                    name:student.name,
-                    age:student.age,
-                    fees:student.fee,
-                    hobbies:student.hobbies,
-                    isactive:student.isactive,
-                    comment:student.comment
-                }
-            )
-            //   Saving Document
-            const result = await studentDoc.save();
-            console.log(result);
-        }catch(err)
-        {
-            console.log(err)
-        }        
-    }
 
-    const createmanyDoc = async() => {
-        try{
-                const studentDoc0 = new studentModel(
-                    {
-                        name:"Shayan Ali",
-                        age:30,
-                        fees:6500.05,
-                        hobbies:['dancing','reading'],
-                        isactive:true,
-                        comment:[{value:'This is good mongoose'}]
-                    }
-                );
-                const studentDoc1 = new studentModel(
-                    {
-                        name:"Faisal",
-                        age:32,
-                        fees:6500.05,
-                        hobbies:['footbal','cricket'],
-                        isactive:true,
-                        comment:[{value:'Avarage Student'}]
-                    }
-                );
+const getSingleDoc = async () =>{
+    const result = await studentModel.findById("63e53f22ac002be7a3f4321e");
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
 
-                const studentDoc2 = new studentModel(
-                    {
-                        name:"Mohsan Ali",
-                        age:21,
-                        fees:6540.05,
-                        hobbies:['social Media','Action'],
-                        isactive:true,
-                        comment:[{value:'Be Preak Value'}]
-                    }
-                );
-                const studentDoc3 = new studentModel(
-                    {
-                        name:"Hussain",
-                        age:36,
-                        fees:7500.05,
-                        hobbies:['gardening','Radio Listing'],
-                        isactive:true,
-                        comment:[{value:'He is good Developer'}]
-                    }
-                );
-                //   Saving Document
-                const result = await studentModel.insertMany([studentDoc0,studentDoc1,studentDoc2,studentDoc3]);
-                console.log(result);
+}
 
-            }catch(err)
-            {
-                console.log(err)
-            }        
-        }
-export default createmanyDoc;
+// Retrieve document with  specific fields
+const getSingleDocSpecificField = async () =>{
+    const result = await studentModel.findById("63e53f22ac002be7a3f4321e",'name age');
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+
+}
+
+// Retrieve document with  specific fields
+const getDocByFieldName = async () =>
+{
+    const result = await studentModel.find({name: 'Mubashar'});
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+}
+
+// Retrieve document with  specific fields by fieldName
+const getDocByFieldNameSpefic_fields = async () =>
+{
+    const result = await studentModel.find({name: 'Mubashar'}).select('name age');
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+}
+
+const getLimitedDoc = async () =>
+{
+    // const result = await studentModel.find().limit(2);
+    const result = await studentModel.find({},null,{limit: 1});
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+}
+
+const getSkippdDoc = async () =>
+{
+    // const result = await studentModel.find().limit(2);
+    // const result = await studentModel.find().skip(1);
+    const result = await studentModel.find({},null,{skip:2});
+
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+}
+const getCountdDoc = async () =>
+{
+
+    const result = await studentModel.find().countDocuments();
+
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+}
+
+const getSortDoc = async () =>
+{
+
+    // const result = await studentModel.find().sort({age:1}); /** assinding order */
+    const result = await studentModel.find().sort({age:-1}); /** desciding order */
+
+    console.log(result);
+    // console.log(result._id.getTimestamp(),result.name,result.age,result.fees.toString());
+}
+export { getAllDoc,getSingleDoc,
+    getSortDoc,
+    getSingleDocSpecificField,
+    getCountdDoc,
+    getDocByFieldName,
+    getDocByFieldNameSpefic_fields,
+    getLimitedDoc,getSkippdDoc }
