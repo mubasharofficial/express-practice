@@ -122,7 +122,7 @@ const getCountdDoc = async () =>
 const getSortDoc = async () =>
 {
 
-    // const result = await studentModel.find().sort({age:1}); /** assinding order */
+    // const result = await studentModel.find().sort({age:1}); /** assinding order create project */
     const result = await studentModel.find().sort({age:-1}); /** desciding order */
 
     console.log(result);
