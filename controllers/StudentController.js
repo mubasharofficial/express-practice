@@ -7,14 +7,16 @@ class StudentController{
     } 
     
     static get_cookies = (req,res)=>{
-        console.log("fetch cookies",req.cookies); // this will get all cookies
+        console.log("fetch cookies",req.cookies); /** this will get all cookies */  
         // console.log(req.cookie.cart); // get spefice cookies like 
         // console.log(req.cookie.username) // 
-        // console.log(req.cookie.testCookies) /** git spefic cookies */
+        // console.log(req.cookie.testCookies) /** git spefic cookies  have start working on it */
         res.send("Cookie  Get...");
     }
 
-    static delete_cookies = (req,res)=>{
+    static delete_cookies = (req,res)=>
+    
+    {
         res.clearCookie("cart");
         res.send("Cookie  Delete...");
     } 
