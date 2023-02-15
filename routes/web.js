@@ -1,9 +1,9 @@
 import express from 'express';
 const router = express.Router();
-import StudentController from '../controllers/StudentController';
+import StudentController from '../controllers/StudentController.js';
 
-router.get('/setcookie',StudentController.set_cookies);
-router.get('/getcookie',StudentController.get_cookies);
-router.get('/deletecookie',StudentController.delete_cookies);
+router.get('/set',StudentController.set_cookies);
+router.get('/get',StudentController.get_cookies);
+router.get('/delete',StudentController.delete_cookies);
 
 export default router;
