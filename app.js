@@ -3,7 +3,7 @@ import session from 'express-session'
 const app = express();
 const port = process.env.PORT || '3000';
 import web from './routes/web.js'
-
+/** start session with mongodb */
 app.use(session({
     name:'sessionkey',
     secret:'slkfhskljeismdlfkjksdmfl23mf32ntjgsdf2sdf3',

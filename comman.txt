@@ -16,3 +16,4 @@ npm i mongoose
 npm i express-session
 npm i cookie-parser
 yarn add cookies-parser
+npm install connect-mongo
